@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: 'Build 🧱'
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup 👨🏻‍💻
+        uses: ./.github/actions/setup
+
+      - name: Build Application 🧱
+        run: pnpm run build
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
+  lint:
+    name: 'Check 🐱'
+    needs: build
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup 👨🏻‍💻
+        uses: ./.github/actions/setup
+
+      - name: Check JS files 🐱
+        run: pnpm run check
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+
+  test:
+    name: 'Test 🧪'
+    needs: build
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Setup 👨🏻‍💻
+        uses: ./.github/actions/setup
+
+      - name: Unit Tests 🧪
+        run: pnpm run test
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+          TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
