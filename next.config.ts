@@ -14,7 +14,7 @@ export default {
 	reactStrictMode: true,
 	experimental: {
 		reactCompiler: true,
-    taint: true,
+		taint: true,
 	},
 	logging: {
 		fetches: {
