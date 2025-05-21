@@ -21,7 +21,9 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "never",
 		"source.fixAll.prettier": "never",
-		"source.fixAll.markdownlint": "explicit"
+		"source.fixAll.biome": "always",
+		"source.fixAll.markdownlint": "explicit",
+		"source.organizeImports.biome": "always"
 	},
 	"material-icon-theme.activeIconPack": "nest",
 	"files.eol": "\n"

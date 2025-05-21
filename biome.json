@@ -15,7 +15,7 @@
 			"**/out/**",
 			"**/storybook-static/**",
 			"**/.turbo/**",
-			"**/convex/_generated/**"
+			"**/lib/generated/**"
 		]
 	},
 	"formatter": {

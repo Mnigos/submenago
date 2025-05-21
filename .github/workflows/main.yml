@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: 'Build 🧱'
-    runs-on: blacksmith-4vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout 🛎
@@ -27,7 +27,7 @@ jobs:
   lint:
     name: 'Check 🐱'
     needs: build
-    runs-on: blacksmith-4vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@master
@@ -44,7 +44,7 @@ jobs:
   test:
     name: 'Test 🧪'
     needs: build
-    runs-on: blacksmith-4vcpu-ubuntu-2204
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout 🛎

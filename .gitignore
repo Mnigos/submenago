@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Turborepo
 .turbo
+
+lib/generated/prisma
+.env*.local

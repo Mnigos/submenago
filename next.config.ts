@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import './env'
 
 const CSPHeader = `
     font-src 'self';
@@ -13,6 +14,7 @@ export default {
 	reactStrictMode: true,
 	experimental: {
 		reactCompiler: true,
+		taint: true,
 	},
 	logging: {
 		fetches: {
