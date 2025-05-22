@@ -35,11 +35,20 @@ const buttonVariants = cva(
 	},
 )
 
-export interface ButtonProps
+export interface ButtonPropsBase
 	extends ComponentProps<'button'>,
 		VariantProps<typeof buttonVariants> {
 	asChild?: boolean
 }
+
+type ButtonProps = ButtonPropsBase &
+	(
+		| { size: 'icon'; 'aria-label': string }
+		| {
+				size?: Exclude<VariantProps<typeof buttonVariants>['size'], 'icon'>
+				'aria-label'?: string
+		  }
+	)
 
 export function Button({
 	className,
@@ -47,12 +56,7 @@ export function Button({
 	size,
 	asChild = false,
 	...props
-}: Readonly<
-	ComponentProps<'button'> &
-		VariantProps<typeof buttonVariants> & {
-			asChild?: boolean
-		}
->) {
+}: Readonly<ButtonProps>) {
 	const Comp = asChild ? Slot : 'button'
 
 	return (

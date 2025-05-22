@@ -1,10 +1,9 @@
+import { NavigationBar } from '@/components/navigation-bar/navigation-bar'
+import { auth } from '@/lib/auth'
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import type { PropsWithChildren } from 'react'
 import './globals.css'
-import { Button } from '@/components/ui/button'
-import { auth } from '@/lib/auth'
-import { headers } from 'next/headers'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -21,27 +20,7 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body className="dark">
-				<nav className="border-b bg-slate-950">
-					<div className="container mx-auto flex h-12 w-full items-center justify-between gap-2 p-2">
-						<p className="font-medium text-md uppercase">Submenago</p>
-
-						<div className="flex gap-4">
-							{session ? (
-								<p>{session.user.name}</p>
-							) : (
-								<>
-									<Button asChild>
-										<Link href="/sign-in">Sign In</Link>
-									</Button>
-
-									<Button asChild variant="outline">
-										<Link href="/sign-up">Sign Up</Link>
-									</Button>
-								</>
-							)}
-						</div>
-					</div>
-				</nav>
+				<NavigationBar user={session?.user} />
 
 				{children}
 			</body>
