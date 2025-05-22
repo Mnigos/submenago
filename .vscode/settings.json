@@ -26,5 +26,8 @@
 		"source.organizeImports.biome": "always"
 	},
 	"material-icon-theme.activeIconPack": "nest",
-	"files.eol": "\n"
+	"files.eol": "\n",
+	"files.associations": {
+		"*.css": "tailwindcss"
+	}
 }
