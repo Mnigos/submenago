@@ -34,6 +34,7 @@
 		"@prisma/adapter-neon": "^6.8.2",
 		"@prisma/client": "^6.8.2",
 		"@radix-ui/react-label": "^2.1.7",
+		"@radix-ui/react-popover": "^1.1.14",
 		"@radix-ui/react-slot": "^1.2.3",
 		"@t3-oss/env-nextjs": "^0.13.4",
 		"@tanstack/react-form": "^1.11.3",
