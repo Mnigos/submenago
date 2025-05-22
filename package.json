@@ -30,7 +30,6 @@
 		"commit": "cz"
 	},
 	"dependencies": {
-		"@hookform/resolvers": "^5.0.1",
 		"@neondatabase/serverless": "^1.0.0",
 		"@prisma/adapter-neon": "^6.8.2",
 		"@prisma/client": "^6.8.2",
