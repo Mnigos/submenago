@@ -130,6 +130,18 @@ export function FormDescription({
 	)
 }
 
+export function Message({
+	className,
+	...props
+}: Readonly<ComponentProps<'p'>>) {
+	return (
+		<p
+			className={cn('min-h-5 text-destructive text-sm', className)}
+			{...props}
+		/>
+	)
+}
+
 export function FormMessage({
 	className,
 	...props
@@ -140,14 +152,9 @@ export function FormMessage({
 		: props.children
 
 	return (
-		<p
-			data-slot="form-message"
-			id={formMessageId}
-			className={cn('min-h-5 text-destructive text-sm', className)}
-			{...props}
-		>
+		<Message data-slot="form-message" id={formMessageId} {...props}>
 			{body}
-		</p>
+		</Message>
 	)
 }
 
